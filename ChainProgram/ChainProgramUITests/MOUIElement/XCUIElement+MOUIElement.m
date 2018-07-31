@@ -18,4 +18,12 @@
     };
 }
 
+- (XCUIElement *(^)(NSString *))mo_typeText {
+    return ^XCUIElement *(NSString *text) {
+        //[self tap];
+        [self typeText:text];
+        return self;
+    };
+}
+
 @end

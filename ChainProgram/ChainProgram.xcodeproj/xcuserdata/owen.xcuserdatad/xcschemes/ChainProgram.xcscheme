@@ -38,6 +38,16 @@
                ReferencedContainer = "container:ChainProgram.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A9F6EF621103E6700F40298"
+               BuildableName = "ChainProgramUITestsSwift.xctest"
+               BlueprintName = "ChainProgramUITestsSwift"
+               ReferencedContainer = "container:ChainProgram.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

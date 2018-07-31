@@ -5,9 +5,11 @@
 //  Created by owen on 2018/7/4.
 //  Copyright © 2018 com.owen. All rights reserved.
 //
-/// 功能：使用XCUIElement Category构造Chainable Syntax Event
-/// 
+/// 功能：封装UITests的Event
+/// 1、使用XCUIElement Category
+/// 2、构造Chainable Syntax Event
 ///
+
 
 #import <XCTest/XCTest.h>
 
@@ -23,8 +25,19 @@
 - (XCUIElement *(^)(void))mo_tap;
 
 /**
+ Event：typeText
+ */
+- (XCUIElement *(^)(NSString *))mo_typeText;
+
+/**
  Event：
  */
+
+
+
+
+
+
 
 /**
  Event：

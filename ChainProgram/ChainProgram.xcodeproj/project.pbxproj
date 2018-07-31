@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A9F6EF121103BD800F40298 /* XCTestCase+MOWait.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6EF021103BD800F40298 /* XCTestCase+MOWait.m */; };
+		5A9F6EFA21103E6700F40298 /* ChainProgramUITestsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6EF921103E6700F40298 /* ChainProgramUITestsSwift.swift */; };
+		5A9F6F0221103ED600F40298 /* MOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6F0121103ED600F40298 /* MOUITests.swift */; };
+		5A9F6F0521105E6200F40298 /* XCTestCase+MOAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6F0421105E6200F40298 /* XCTestCase+MOAssert.m */; };
 		5AD188CB20E72C0400AD0B9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188CA20E72C0400AD0B9C /* AppDelegate.m */; };
 		5AD188CE20E72C0400AD0B9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188CD20E72C0400AD0B9C /* ViewController.m */; };
 		5AD188D120E72C0400AD0B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD188CF20E72C0400AD0B9C /* Main.storyboard */; };
@@ -22,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A9F6EFC21103E6700F40298 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AD188BE20E72C0400AD0B9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD188C520E72C0400AD0B9C;
+			remoteInfo = ChainProgram;
+		};
 		5AD188EB20E874EC00AD0B9C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5AD188BE20E72C0400AD0B9C /* Project object */;
@@ -34,6 +45,14 @@
 /* Begin PBXFileReference section */
 		2DE201CC71AB998F11C11D72 /* Pods-ChainProgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChainProgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChainProgram/Pods-ChainProgram.debug.xcconfig"; sourceTree = "<group>"; };
 		4B188EE4638C01799D0B8FD5 /* libPods-ChainProgram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChainProgram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9F6EEF21103BD800F40298 /* XCTestCase+MOWait.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+MOWait.h"; sourceTree = "<group>"; };
+		5A9F6EF021103BD800F40298 /* XCTestCase+MOWait.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+MOWait.m"; sourceTree = "<group>"; };
+		5A9F6EF721103E6700F40298 /* ChainProgramUITestsSwift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainProgramUITestsSwift.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9F6EF921103E6700F40298 /* ChainProgramUITestsSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProgramUITestsSwift.swift; sourceTree = "<group>"; };
+		5A9F6EFB21103E6700F40298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A9F6F0121103ED600F40298 /* MOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOUITests.swift; sourceTree = "<group>"; };
+		5A9F6F0321105E6200F40298 /* XCTestCase+MOAssert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+MOAssert.h"; sourceTree = "<group>"; };
+		5A9F6F0421105E6200F40298 /* XCTestCase+MOAssert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+MOAssert.m"; sourceTree = "<group>"; };
 		5AD188C620E72C0400AD0B9C /* ChainProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChainProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD188C920E72C0400AD0B9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5AD188CA20E72C0400AD0B9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,6 +78,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A9F6EF421103E6700F40298 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD188C320E72C0400AD0B9C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -94,11 +120,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5A9F6EF221103BF200F40298 /* MOAssert */ = {
+			isa = PBXGroup;
+			children = (
+				5A9F6EEF21103BD800F40298 /* XCTestCase+MOWait.h */,
+				5A9F6EF021103BD800F40298 /* XCTestCase+MOWait.m */,
+				5A9F6F0321105E6200F40298 /* XCTestCase+MOAssert.h */,
+				5A9F6F0421105E6200F40298 /* XCTestCase+MOAssert.m */,
+			);
+			path = MOAssert;
+			sourceTree = "<group>";
+		};
+		5A9F6EF821103E6700F40298 /* ChainProgramUITestsSwift */ = {
+			isa = PBXGroup;
+			children = (
+				5A9F6EF921103E6700F40298 /* ChainProgramUITestsSwift.swift */,
+				5A9F6F0121103ED600F40298 /* MOUITests.swift */,
+				5A9F6EFB21103E6700F40298 /* Info.plist */,
+			);
+			path = ChainProgramUITestsSwift;
+			sourceTree = "<group>";
+		};
 		5AD188BD20E72C0400AD0B9C = {
 			isa = PBXGroup;
 			children = (
 				5AD188C820E72C0400AD0B9C /* ChainProgram */,
 				5AD188E720E874EC00AD0B9C /* ChainProgramUITests */,
+				5A9F6EF821103E6700F40298 /* ChainProgramUITestsSwift */,
 				5AD188C720E72C0400AD0B9C /* Products */,
 				1C4B51072040BE2DC6AC9DC8 /* Pods */,
 				3D657FBEE49CFBC2B5D0C78F /* Frameworks */,
@@ -110,6 +158,7 @@
 			children = (
 				5AD188C620E72C0400AD0B9C /* ChainProgram.app */,
 				5AD188E620E874EC00AD0B9C /* ChainProgramUITests.xctest */,
+				5A9F6EF721103E6700F40298 /* ChainProgramUITestsSwift.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD188E820E874EC00AD0B9C /* ChainProgramUITests.m */,
+				5A9F6EF221103BF200F40298 /* MOAssert */,
 				5AD188FC20ED0F1500AD0B9C /* MOUIElement */,
 				5AD188EA20E874EC00AD0B9C /* Info.plist */,
 			);
@@ -158,6 +208,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5A9F6EF621103E6700F40298 /* ChainProgramUITestsSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A9F6EFE21103E6700F40298 /* Build configuration list for PBXNativeTarget "ChainProgramUITestsSwift" */;
+			buildPhases = (
+				5A9F6EF321103E6700F40298 /* Sources */,
+				5A9F6EF421103E6700F40298 /* Frameworks */,
+				5A9F6EF521103E6700F40298 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A9F6EFD21103E6700F40298 /* PBXTargetDependency */,
+			);
+			name = ChainProgramUITestsSwift;
+			productName = ChainProgramUITestsSwift;
+			productReference = 5A9F6EF721103E6700F40298 /* ChainProgramUITestsSwift.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5AD188C520E72C0400AD0B9C /* ChainProgram */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5AD188DC20E72C0500AD0B9C /* Build configuration list for PBXNativeTarget "ChainProgram" */;
@@ -200,9 +268,14 @@
 		5AD188BE20E72C0400AD0B9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = com.owen;
 				TargetAttributes = {
+					5A9F6EF621103E6700F40298 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 5AD188C520E72C0400AD0B9C;
+					};
 					5AD188C520E72C0400AD0B9C = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -227,11 +300,19 @@
 			targets = (
 				5AD188C520E72C0400AD0B9C /* ChainProgram */,
 				5AD188E520E874EC00AD0B9C /* ChainProgramUITests */,
+				5A9F6EF621103E6700F40298 /* ChainProgramUITestsSwift */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5A9F6EF521103E6700F40298 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD188C420E72C0400AD0B9C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,6 +354,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A9F6EF321103E6700F40298 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A9F6EFA21103E6700F40298 /* ChainProgramUITestsSwift.swift in Sources */,
+				5A9F6F0221103ED600F40298 /* MOUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AD188C220E72C0400AD0B9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,9 +378,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9F6EF121103BD800F40298 /* XCTestCase+MOWait.m in Sources */,
 				5AD188F220E8CEF900AD0B9C /* MOUIElement.m in Sources */,
 				5AD188F520ECD55F00AD0B9C /* MOUIApplication.m in Sources */,
 				5AD188FB20ED067300AD0B9C /* XCUIElement+MOUIElement.m in Sources */,
+				5A9F6F0521105E6200F40298 /* XCTestCase+MOAssert.m in Sources */,
 				5AD188E920E874EC00AD0B9C /* ChainProgramUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +390,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5A9F6EFD21103E6700F40298 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD188C520E72C0400AD0B9C /* ChainProgram */;
+			targetProxy = 5A9F6EFC21103E6700F40298 /* PBXContainerItemProxy */;
+		};
 		5AD188EC20E874EC00AD0B9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5AD188C520E72C0400AD0B9C /* ChainProgram */;
@@ -325,6 +422,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5A9F6EFF21103E6700F40298 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KM6P947ZT3;
+				INFOPLIST_FILE = ChainProgramUITestsSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.owen.ChainProgramUITestsSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ChainProgram;
+			};
+			name = Debug;
+		};
+		5A9F6F0021103E6700F40298 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KM6P947ZT3;
+				INFOPLIST_FILE = ChainProgramUITestsSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.owen.ChainProgramUITestsSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ChainProgram;
+			};
+			name = Release;
+		};
 		5AD188DA20E72C0500AD0B9C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -510,6 +649,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A9F6EFE21103E6700F40298 /* Build configuration list for PBXNativeTarget "ChainProgramUITestsSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A9F6EFF21103E6700F40298 /* Debug */,
+				5A9F6F0021103E6700F40298 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5AD188C120E72C0400AD0B9C /* Build configuration list for PBXProject "ChainProgram" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -14,7 +14,7 @@
 
 
 
-//
+// Button
 /**
  Find：find a button by identifier
  */
@@ -41,6 +41,7 @@
 }
 
 
+// TextField
 - (XCUIElement *(^)(NSString *))mo_findTextFieldByPlaceholder {
     return ^XCUIElement *(NSString *placeholder) {
         MOUIApplication *app = MOUIApplication.new;
@@ -53,9 +54,20 @@
 - (XCUIElement *(^)(NSString *))mo_findSecureTextFieldByPlaceholder {
     return ^XCUIElement *(NSString *placeholder) {
         MOUIApplication *app = MOUIApplication.new;
-        XCUIElementQuery *secureTextFields = app.textFields;
+        XCUIElementQuery *secureTextFields = app.secureTextFields;
         XCUIElement *secureTextField = secureTextFields[placeholder];
         return secureTextField;
+    };
+}
+
+
+// Title
+- (XCUIElement *(^)(NSString *))mo_findTitleByIdentifier {
+    return ^XCUIElement *(NSString *identifier) {
+        MOUIApplication *app = MOUIApplication.new;
+        XCUIElementQuery *navigationBars = app.navigationBars;
+        XCUIElement *navigationBar = navigationBars[identifier];
+        return navigationBar;
     };
 }
 

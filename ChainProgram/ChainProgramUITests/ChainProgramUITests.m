@@ -9,7 +9,10 @@
 #import <XCTest/XCTest.h>
 #import "MOUIApplication.h"
 #import "XCUIElement+MOUIElement.h"
-#import "MOUIElement.h"
+#import "XCTestCase+MOWait.h"
+#import "XCTestCase+MOAssert.h"
+
+
 
 @interface ChainProgramUITests : XCTestCase
 
@@ -49,24 +52,44 @@
     
     // 获取VC title元素的方法
     NSString *title;
+    
+    // ???
+//    XCUIElement *detail = app.navigationBars[@"Detail"].staticTexts[@"Detail"];
+//    title = detail.label;
+    
+    // 得到的是label
 //    XCUIElement *detail = app.navigationBars[@"Detail"].otherElements[@"Detail"];
 //    title = detail.label;
-    //XCUIElement *detail = [app.navigationBars element];
-    XCUIElement *detail = app.navigationBars.element;
+    
+    // 得到的是NavigationBar
+    XCUIElement *detail = app.navigationBars[@"Detail"];
     title = detail.identifier;
-    XCTAssertEqualObjects(title, @"Detail", @"Finding Detail title failed!");
+    
+//    XCUIElement *detail = [app.navigationBars element];
+//    title = detail.identifier;
+    
+//    XCUIElement *detail = app.navigationBars.element;
+//    title = detail.identifier;
+    
+//    XCUIElement *detail = [app.navigationBars firstMatch];
+//    title = detail.identifier;
+    
+    
+    //XCTAssertEqualObjects(title, @"Detail", @"Finding Detail title failed!");
     // Expect: Assert.element().equalTo().failure();
+    [self moc_waitForElementToAppear: detail];
+    
 }
     
 // 使用chainable syntax
 - (void)testTap {
     MOUIApplication*app = MOUIApplication.new;
     XCUIElementQuery *buttons = app.buttons;
-    MOUIElement *button = (MOUIElement *)buttons[@"登录"];
+    //MOUIElement *button = (MOUIElement *)buttons[@"登录"];
     // 问题：caught "NSInvalidArgumentException", "-[XCUIElement mo_tap]: unrecognized selector
     // 原因：button类型为XCUIElement，XCUIElement无mo_tap()方法，无法完全将XCUIElement强制转换为MOUIElement
     // 解决：？？？
-    button.mo_tap();
+    //button.mo_tap();
 }
 
 //
@@ -100,6 +123,8 @@
     sleep(5);
 }
 
+
+
 - (void)testTextField {
     
     XCUIApplication *app = XCUIApplication.new;
@@ -116,6 +141,35 @@
     
     sleep(5);
 }
+
+- (void)testTextFieldChainable {
+    MOUIApplication *app = MOUIApplication.new;
+    // 输入用户名
+    app.mo_findTextFieldByPlaceholder(@"TextField").mo_tap().mo_typeText(@"Account");
+    // 输入秘密
+    app.mo_findSecureTextFieldByPlaceholder(@"SecureTextField").mo_tap().mo_typeText(@"Password");
+    
+    //
+    app.mo_findButtonById(@"登录").mo_tap();
+    
+    // Expect: app.waitForElement(detail).toAppear();
+    // 得到的是NavigationBar
+    XCUIElement *detail = app.navigationBars[@"Detail"];
+//    [self moc_waitForElementToAppear:detail];
+    self.mo_waitForElementToAppear(app.mo_findTitleByIdentifier(@"Detail"));
+    XCTAssertEqualObjects(app.mo_findTitleByIdentifier(@"Detail").identifier, @"Detail", @"Find title failed!");
+    self.mo_AssertElement(detail.identifier, @"Detail2", @"Failure...");
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
