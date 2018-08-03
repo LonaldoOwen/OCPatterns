@@ -5,7 +5,7 @@
 //  Created by owen on 2018/7/31.
 //  Copyright © 2018 com.owen. All rights reserved.
 //
-/// 功能：封装XCTAssert
+/// 功能：封装XCTAssert（暂时不使用，使用XCTAssert）
 /// 1、方式：XCTestCase的Category；
 /// 2、Chainable Syntax；
 ///
@@ -21,7 +21,8 @@
 /**
  *Assert：
  */
-- (XCTestCase *(^)(id, id, NSString *))mo_AssertElement;
+- (XCTestCase *(^)(id, id, NSString *))mo_AssertEqualObjects;
+
 - (void)mo_AssertElement: (id)element1 equalTo: (id)element2 failure: (NSString *)fail;
 
 

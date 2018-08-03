@@ -12,14 +12,16 @@
 
 
 
-- (XCTestCase *(^)(id, id, NSString *))mo_AssertElement {
+- (XCTestCase *(^)(id, id, NSString *))mo_AssertEqualObjects {
     return ^XCTestCase *(id element1, id element2, NSString *failure) {
         XCTAssertEqualObjects(element1, element2, @"%@", failure);
         return self;
     };
 }
 
-
+- (void)mo_AssertElement:(id)element1 equalTo:(id)element2 failure:(NSString *)fail {
+    XCTAssertEqualObjects(element1, element2, @"%@", fail);
+}
 
 
 @end

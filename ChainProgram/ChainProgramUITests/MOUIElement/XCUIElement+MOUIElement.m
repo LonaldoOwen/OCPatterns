@@ -10,7 +10,7 @@
 
 @implementation XCUIElement (MOUIElement)
 
-//
+// tap
 - (XCUIElement *(^)(void))mo_tap {
     return ^XCUIElement *() {
         [self tap];
@@ -18,6 +18,16 @@
     };
 }
 
+// doubleTap
+- (XCUIElement *(^)(void))mo_doubleTap {
+    return ^XCUIElement *() {
+        [self doubleTap];
+        return self;
+    };
+}
+
+
+// typeText
 - (XCUIElement *(^)(NSString *))mo_typeText {
     return ^XCUIElement *(NSString *text) {
         //[self tap];
@@ -25,5 +35,51 @@
         return self;
     };
 }
+
+
+// swipeLeft
+- (XCUIElement *(^)(void))mo_swipeLeft {
+    return ^XCUIElement *() {
+        [self swipeLeft];
+        return self;
+    };
+}
+
+// swipeRight
+- (XCUIElement *(^)(void))mo_swipeRight {
+    return ^XCUIElement *() {
+        [self swipeRight];
+        return self;
+    };
+}
+
+// swipeUp
+- (XCUIElement *(^)(void))mo_swipeUp {
+    return ^XCUIElement *() {
+        [self swipeUp];
+        return self;
+    };
+}
+
+// swipeDown
+- (XCUIElement *(^)(void))mo_swipeDown {
+    return ^XCUIElement *() {
+        [self mo_swipeDown];
+        return self;
+    };
+}
+
+
+// Picker
+// adjust to PickerWheel value.
+- (XCUIElement *(^)(NSString *))mo_adjustToPickerWheelValue {
+    return ^XCUIElement *(NSString *pickerWheelValue) {
+        [self adjustToPickerWheelValue:pickerWheelValue];
+        return self;
+    };
+}
+
+
+
 
 @end

@@ -16,6 +16,8 @@
 
 @interface ChainProgramUITests : XCTestCase
 
+@property (nonatomic, strong)MOUIApplication *mo_app;
+
 @end
 
 @implementation ChainProgramUITests
@@ -31,6 +33,13 @@
     [[[XCUIApplication alloc] init] launch];
     
     // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    
+    
+    // 设置默认异步超时时间
+    [XCTestCase setAsynchronousTestTimeout:20];
+    
+    // 实例化MOUIApplication，全局使用
+    self.mo_app = [[MOUIApplication alloc] init];
 }
 
 - (void)tearDown {
@@ -143,31 +152,144 @@
 }
 
 - (void)testTextFieldChainable {
-    MOUIApplication *app = MOUIApplication.new;
     // 输入用户名
-    app.mo_findTextFieldByPlaceholder(@"TextField").mo_tap().mo_typeText(@"Account");
+    self.mo_app.mo_findTextFieldByPlaceholder(@"TextField").mo_tap().mo_typeText(@"Account");
     // 输入秘密
-    app.mo_findSecureTextFieldByPlaceholder(@"SecureTextField").mo_tap().mo_typeText(@"Password");
+    self.mo_app.mo_findSecureTextFieldByPlaceholder(@"SecureTextField").mo_tap().mo_typeText(@"Password");
+    // 点击登录button，跳转到Detail页面
+    self.mo_app.mo_findButtonById(@"登录").mo_tap();
     
-    //
-    app.mo_findButtonById(@"登录").mo_tap();
+    // NavigationBar
+    //XCUIElement *detail = app.navigationBars[@"Detail"];
+    //[self moc_waitForElementToAppear:detail];
     
+    // Wait for Element
     // Expect: app.waitForElement(detail).toAppear();
-    // 得到的是NavigationBar
-    XCUIElement *detail = app.navigationBars[@"Detail"];
-//    [self moc_waitForElementToAppear:detail];
-    self.mo_waitForElementToAppear(app.mo_findTitleByIdentifier(@"Detail"));
-    XCTAssertEqualObjects(app.mo_findTitleByIdentifier(@"Detail").identifier, @"Detail", @"Find title failed!");
-    self.mo_AssertElement(detail.identifier, @"Detail2", @"Failure...");
+    //self.mo_waitForElementToAppear(app.mo_findTitleByIdentifier(@"Detail"));
+    self.mo_waitForElementToAppearTimeout(self.mo_app.mo_findTitleByIdentifier(@"Detail"), 5);
+    
+    // Assert
+    XCTAssertEqualObjects(self.mo_app.mo_findTitleByIdentifier(@"Detail").identifier, @"Detail", @"Find title failed!");
+//    self.mo_AssertEqualObjects(detail.identifier, @"Detail2", @"Failure...");
+//    [self mo_AssertElement:detail.identifier equalTo:@"Detail" failure:@"Failure..."];
 }
 
+- (void)testTabBarChainable {
+    /// find tabBarButton by index
+    // 点击第二个tabBar
+    self.mo_app.mo_findTabBarButtonByIndex(1).mo_tap();
+    sleep(2);
+    
+    /// find tabBarButton by identifier
+    // 点击第三个tabBar
+    self.mo_app.mo_findTabBarButtonByIdentifier(@"Item3").mo_tap();
+    sleep(5);
+}
 
+- (void)testCellChainable {
+    // 点击第二个tabBar
+    self.mo_app.mo_findTabBarButtonByIndex(1).mo_tap();
+    
+    /// find cell by index
+    self.mo_app.mo_findCellByIndex(13).mo_tap();
+    sleep(2);
+    
+    /// find cell by identifier
+    //[[self.mo_app.cells.staticTexts elementMatchingType:XCUIElementTypeStaticText identifier:@"Column 0 cell 0"] tap];
+    self.mo_app.mo_findCellByIdentifier(@"Column 2 cell 5").mo_tap();
+    sleep(20);
+}
 
+- (void)testPickerChainable {
+    // DatePicker
+    // 设置日期
+    self.mo_app.mo_findDatePickerWheelByIndex(0).mo_adjustToPickerWheelValue(@"Jul 28");
+    sleep(2);
+    // 设置小时
+    self.mo_app.mo_findDatePickerWheelByIndex(1).mo_adjustToPickerWheelValue(@"5");
+    sleep(3);
+    // 设置分钟
+    self.mo_app.mo_findDatePickerWheelByIndex(2).mo_adjustToPickerWheelValue(@"05");
+    sleep(2);
+    // 设置上午下午
+    self.mo_app.mo_findDatePickerWheelByIndex(3).mo_adjustToPickerWheelValue(@"PM");
+    sleep(2);
+    
+    // Picker
+    self.mo_app.mo_findPickerWheelByIndex(0).mo_adjustToPickerWheelValue(@"济南");
+    sleep(2);
+    self.mo_app.mo_findPickerWheelByIndex(1).mo_adjustToPickerWheelValue(@"开封");
+    sleep(2);
+    self.mo_app.mo_findPickerWheelByIndex(2).mo_adjustToPickerWheelValue(@"承德");
+    sleep(10);
+}
 
+- (void)testSegmentedControlChainable {
+    // Find SegmentedControl tap by index.
+    self.mo_app.mo_findSegmentedContrlTabByIndex(1).mo_tap();
+    sleep(2);
+    self.mo_app.mo_findSegmentedContrlTabByIndex(2).mo_tap();
+    sleep(2);
+    
+    // Find SegmentedControl tap by identifier
+    self.mo_app.mo_findSegmentedContrlTabByIdentifier(@"First").mo_tap();
+    sleep(2);
+    self.mo_app.mo_findSegmentedContrlTabByIdentifier(@"Third").mo_tap();
+    sleep(10);
+}
 
+- (void)testBarButtonItemChainable {
+    /// NavigationBar
+    // 切换到tab
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    // 点击登录button跳转到Detail
+    self.mo_app.mo_findButtonById(@"登录").mo_tap();
+    // 点击Edit button
+    self.mo_app.mo_findNavigationBarButtonByIndex(1).mo_tap();
+    sleep(2);
+    // 点击返回button
+    self.mo_app.mo_findNavigationBarButtonByIdentifier(@"Item3").mo_tap();
+    
+    /// ToolBar
+    // 点击登录button跳转到Detail
+    self.mo_app.mo_findButtonById(@"登录").mo_tap();
+    // 点击ToolBarItem1
+    self.mo_app.mo_findToolBarButtonByIndex(0).mo_tap();
+    sleep(2);
+    // 点击ToolBarItem2
+    self.mo_app.mo_findToolBarButtonByIdentifier(@"ToolBarItem2").mo_tap();
+    sleep(2);
+}
 
+- (void)testSearchBarChainable {
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    //
+    self.mo_app
+    .mo_findSearchBar()
+    .mo_tap();
+    sleep(10);
+}
 
+- (void)testSwitchChainable {
+    // Switch to second tab
+    self.mo_app.mo_findTabBarButtonByIndex(1).mo_tap();
+    // Tab the third Switch
+    self.mo_app.mo_findSwitchByIndex(2).mo_tap();
+    sleep(2);
+    // Tab the fiveth Switch
+    self.mo_app.mo_findSwitchByIndex(4).mo_tap();
+    sleep(2);
+}
 
+- (void)testTextViewChainable {
+    // Switch to Detail VC
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    self.mo_app.mo_findButtonById(@"登录").mo_tap();
+    // TextView input
+    // 问题：如果textView中有文本，输入会从文本前面进行？？？
+    self.mo_app.mo_findTextViewByIndex(0).mo_tap().mo_typeText(@"Input in TextView...");
+    sleep(5);
+}
 
 
 

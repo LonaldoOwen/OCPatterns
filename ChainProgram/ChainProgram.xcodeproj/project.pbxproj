@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A95D0C82112A9CA0004FC90 /* FirtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A95D0C72112A9CA0004FC90 /* FirtViewController.m */; };
+		5A95D0CB2112DE0C0004FC90 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A95D0CA2112DE0C0004FC90 /* DetailViewController.m */; };
+		5A95D0CF2113014D0004FC90 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A95D0CD2113014D0004FC90 /* SwitchCell.m */; };
+		5A95D0D02113014D0004FC90 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A95D0CE2113014D0004FC90 /* SwitchCell.xib */; };
 		5A9F6EF121103BD800F40298 /* XCTestCase+MOWait.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6EF021103BD800F40298 /* XCTestCase+MOWait.m */; };
 		5A9F6EFA21103E6700F40298 /* ChainProgramUITestsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6EF921103E6700F40298 /* ChainProgramUITestsSwift.swift */; };
 		5A9F6F0221103ED600F40298 /* MOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6F0121103ED600F40298 /* MOUITests.swift */; };
 		5A9F6F0521105E6200F40298 /* XCTestCase+MOAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6F0421105E6200F40298 /* XCTestCase+MOAssert.m */; };
+		5A9F6F082111B2AC00F40298 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F6F072111B2AC00F40298 /* TableViewController.m */; };
 		5AD188CB20E72C0400AD0B9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188CA20E72C0400AD0B9C /* AppDelegate.m */; };
 		5AD188CE20E72C0400AD0B9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188CD20E72C0400AD0B9C /* ViewController.m */; };
 		5AD188D120E72C0400AD0B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD188CF20E72C0400AD0B9C /* Main.storyboard */; };
@@ -45,6 +50,13 @@
 /* Begin PBXFileReference section */
 		2DE201CC71AB998F11C11D72 /* Pods-ChainProgram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChainProgram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChainProgram/Pods-ChainProgram.debug.xcconfig"; sourceTree = "<group>"; };
 		4B188EE4638C01799D0B8FD5 /* libPods-ChainProgram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChainProgram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A95D0C62112A9CA0004FC90 /* FirtViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirtViewController.h; sourceTree = "<group>"; };
+		5A95D0C72112A9CA0004FC90 /* FirtViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirtViewController.m; sourceTree = "<group>"; };
+		5A95D0C92112DE0C0004FC90 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5A95D0CA2112DE0C0004FC90 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		5A95D0CC2113014D0004FC90 /* SwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
+		5A95D0CD2113014D0004FC90 /* SwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
+		5A95D0CE2113014D0004FC90 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		5A9F6EEF21103BD800F40298 /* XCTestCase+MOWait.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+MOWait.h"; sourceTree = "<group>"; };
 		5A9F6EF021103BD800F40298 /* XCTestCase+MOWait.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+MOWait.m"; sourceTree = "<group>"; };
 		5A9F6EF721103E6700F40298 /* ChainProgramUITestsSwift.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainProgramUITestsSwift.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +65,8 @@
 		5A9F6F0121103ED600F40298 /* MOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOUITests.swift; sourceTree = "<group>"; };
 		5A9F6F0321105E6200F40298 /* XCTestCase+MOAssert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+MOAssert.h"; sourceTree = "<group>"; };
 		5A9F6F0421105E6200F40298 /* XCTestCase+MOAssert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+MOAssert.m"; sourceTree = "<group>"; };
+		5A9F6F062111B2AC00F40298 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		5A9F6F072111B2AC00F40298 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		5AD188C620E72C0400AD0B9C /* ChainProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChainProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD188C920E72C0400AD0B9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5AD188CA20E72C0400AD0B9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -172,6 +186,15 @@
 				5AD188CD20E72C0400AD0B9C /* ViewController.m */,
 				5AD188DF20E770A600AD0B9C /* MO_UILabel.h */,
 				5AD188E020E770A600AD0B9C /* MO_UILabel.m */,
+				5A9F6F062111B2AC00F40298 /* TableViewController.h */,
+				5A9F6F072111B2AC00F40298 /* TableViewController.m */,
+				5A95D0CC2113014D0004FC90 /* SwitchCell.h */,
+				5A95D0CD2113014D0004FC90 /* SwitchCell.m */,
+				5A95D0CE2113014D0004FC90 /* SwitchCell.xib */,
+				5A95D0C62112A9CA0004FC90 /* FirtViewController.h */,
+				5A95D0C72112A9CA0004FC90 /* FirtViewController.m */,
+				5A95D0C92112DE0C0004FC90 /* DetailViewController.h */,
+				5A95D0CA2112DE0C0004FC90 /* DetailViewController.m */,
 				5AD188CF20E72C0400AD0B9C /* Main.storyboard */,
 				5AD188D220E72C0500AD0B9C /* Assets.xcassets */,
 				5AD188D420E72C0500AD0B9C /* LaunchScreen.storyboard */,
@@ -318,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD188D620E72C0500AD0B9C /* LaunchScreen.storyboard in Resources */,
+				5A95D0D02113014D0004FC90 /* SwitchCell.xib in Resources */,
 				5AD188D320E72C0500AD0B9C /* Assets.xcassets in Resources */,
 				5AD188D120E72C0400AD0B9C /* Main.storyboard in Resources */,
 			);
@@ -368,9 +392,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD188E120E770A600AD0B9C /* MO_UILabel.m in Sources */,
+				5A95D0CF2113014D0004FC90 /* SwitchCell.m in Sources */,
+				5A95D0C82112A9CA0004FC90 /* FirtViewController.m in Sources */,
 				5AD188CE20E72C0400AD0B9C /* ViewController.m in Sources */,
 				5AD188D920E72C0500AD0B9C /* main.m in Sources */,
+				5A9F6F082111B2AC00F40298 /* TableViewController.m in Sources */,
 				5AD188CB20E72C0400AD0B9C /* AppDelegate.m in Sources */,
+				5A95D0CB2112DE0C0004FC90 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
