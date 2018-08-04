@@ -18,6 +18,19 @@
 
 @interface MOUIApplication : XCUIApplication
 
+
+// MARK: - Alert
+/**
+ *Find：alert button by index.
+ */
+@property (nonatomic, copy) XCUIElement *(^mo_findAlertButtonByIndex)(NSInteger index);
+
+/**
+ *Find：alert button by identifier
+ */
+@property (nonatomic, copy) XCUIElement *(^mo_findAlertButtonByID)(NSString *identifier);
+
+
 // MARK: - Button
 /**
  Find：find a button by identifier.

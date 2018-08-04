@@ -13,6 +13,24 @@
 @implementation MOUIApplication
 
 
+// Alert
+- (XCUIElement *(^)(NSInteger))mo_findAlertButtonByIndex {
+    return ^XCUIElement *(NSInteger index) {
+        MOUIApplication *app = MOUIApplication.new;
+        XCUIElement *alert = app.alerts.firstMatch;
+        XCUIElement *alertButton = [alert.buttons elementBoundByIndex:index];
+        return alertButton;
+    };
+}
+
+- (XCUIElement *(^)(NSString *))mo_findAlertButtonByID {
+    return ^XCUIElement *(NSString *identifier) {
+        MOUIApplication *app = MOUIApplication.new;
+        XCUIElement *alertbutton = app.alerts.buttons[identifier].firstMatch;
+        return alertbutton;
+    };
+}
+
 
 // Button
 /**
@@ -22,7 +40,7 @@
     
     return ^XCUIElement *(NSString *identifier) {
         MOUIApplication *app = MOUIApplication.new;
-        XCUIElement *button = app.buttons[@"登录"];
+        XCUIElement *button = app.buttons[identifier];
         //return self;  // if return self, button not taped!
         return button;
     };

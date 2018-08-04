@@ -152,24 +152,25 @@
 }
 
 - (void)testTextFieldChainable {
+    // Switch to Tab3
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    
     // 输入用户名
     self.mo_app.mo_findTextFieldByPlaceholder(@"TextField").mo_tap().mo_typeText(@"Account");
     // 输入秘密
     self.mo_app.mo_findSecureTextFieldByPlaceholder(@"SecureTextField").mo_tap().mo_typeText(@"Password");
     // 点击登录button，跳转到Detail页面
     self.mo_app.mo_findButtonById(@"登录").mo_tap();
-    
-    // NavigationBar
-    //XCUIElement *detail = app.navigationBars[@"Detail"];
-    //[self moc_waitForElementToAppear:detail];
-    
     // Wait for Element
     // Expect: app.waitForElement(detail).toAppear();
     //self.mo_waitForElementToAppear(app.mo_findTitleByIdentifier(@"Detail"));
     self.mo_waitForElementToAppearTimeout(self.mo_app.mo_findTitleByIdentifier(@"Detail"), 5);
     
+    // NavigationBar
+    //XCUIElement *detail = app.navigationBars[@"Detail"];
+    //[self moc_waitForElementToAppear:detail];
     // Assert
-    XCTAssertEqualObjects(self.mo_app.mo_findTitleByIdentifier(@"Detail").identifier, @"Detail", @"Find title failed!");
+    //XCTAssertEqualObjects(self.mo_app.mo_findTitleByIdentifier(@"Detail").identifier, @"Detail", @"Find title failed!");
 //    self.mo_AssertEqualObjects(detail.identifier, @"Detail2", @"Failure...");
 //    [self mo_AssertElement:detail.identifier equalTo:@"Detail" failure:@"Failure..."];
 }
@@ -291,8 +292,87 @@
     sleep(5);
 }
 
+// Press Home button and relaunch the app
+- (void)testPressHomeButton {
+    
+    // Press Home button
+    XCUIDevice *device = [XCUIDevice sharedDevice];
+    [device pressButton:XCUIDeviceButtonHome];
+    sleep(2);
+    
+    // Activate app
+    [self.mo_app activate];
+    sleep(5);
+}
+- (void)testAppLifeCycle {
+    // Launch
+    // If the application is already running, the existing instance will be terminated to ensure a clean state for the launched instance.
+    [self.mo_app launch];
+    
+    // Terminate
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    [self.mo_app terminate];
+    sleep(2);
+    
+    // Activate
+    // Unlike -launch, if the application is already running this call will not terminate the existing instance.
+    [self.mo_app activate];
+    sleep(3);
+}
+
+- (void)testPressHomeButtonChainable {
+    // Switch to Tab3
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    
+    // Press Home button
+    self.mo_app.mo_pressHomeButton();
+    sleep(3);
+    
+    // Activate
+    self.mo_app.mo_activate();
+    sleep(3);
+    
+    // Terminate
+    self.mo_app.mo_terminate();
+    
+    // Launch
+    self.mo_app.mo_launch();
+    sleep(3);
+}
+
+- (void)testAlertChainable {
+    // Show Alert
+    self.mo_app.mo_findButtonById(@"ShowAlert").mo_tap();
+    sleep(2);
+    // Handle Alert
+    //self.mo_app.mo_findAlertButtonByIndex(0).mo_tap();
+    //self.mo_app.mo_findAlertButtonByID(@"Yes").mo_tap();
+    //sleep(2);
+    
+    //
+    id token = [self addUIInterruptionMonitorWithDescription:@"ShowAlert" handler:^BOOL(XCUIElement * _Nonnull alert) {
+        //
+        XCUIElement *alertOk = alert.buttons[@"Ok"];
+        if (alertOk.exists) {
+            alertOk.mo_tap();
+            sleep(3);
+            return YES;
+        } else {
+            return NO;
+        }
+    }];
+    
+    self.mo_app.mo_tap();
+}
+
 
 
 
 
 @end
+
+
+
+
+
+

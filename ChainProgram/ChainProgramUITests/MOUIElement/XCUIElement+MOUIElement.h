@@ -98,6 +98,44 @@
 
 
 
+
+
+
+// MARK: - XCUIDevice(Not belong to XCUIElement)
+/**
+ Event：- pressButton:
+ Simulates the user pressing a physical button.
+ */
+- (XCUIElement *(^)(void))mo_pressHomeButton;
+
+
+// MARK: - XCUIApplication
+/**
+ Event：- launch
+ Launch the app that current testing.
+ */
+- (XCUIElement *(^)(void))mo_launch;
+
+/**
+ Event：- activate
+ Activates the application.
+ */
+- (XCUIElement *(^)(void))mo_activate;
+
+/**
+ Event：- terminate
+ Terminates any running instance of the application.
+ */
+- (XCUIElement *(^)(void))mo_terminate;
+
+
+
+
+
+
+
+
+// MARK: -
 /**
  Event：
  */

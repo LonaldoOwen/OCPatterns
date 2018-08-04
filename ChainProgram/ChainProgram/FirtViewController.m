@@ -29,6 +29,21 @@
 }
 
 
+// MARK: - Actions
+- (IBAction)handleAlertButtonAction:(id)sender forEvent:(UIEvent *)event {
+    [self showAlert];
+}
+
+- (void)showAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Test Alert" message:@"This is a alert!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:confirm];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
 
 
 // MARK: - UIPickerViewDataSource

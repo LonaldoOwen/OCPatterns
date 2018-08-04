@@ -70,9 +70,11 @@ static NSTimeInterval _asynchronousTestTimeout = 10;
             NSLog(@"completed");
             break;
         case XCTWaiterResultTimedOut:
-            NSLog(@"timeout");
+            // 记录失败情况
+            // expected=YES和NO的区别？？？
+            [self recordFailureWithDescription:@"Timeout" inFile:@__FILE__ atLine:__LINE__ expected:YES];
             // 如果timeout，使测试结果失败
-            XCTFail(@"Condition was not satisfied during %f seconds", timeout);
+            //XCTFail(@"Condition was not satisfied during %f seconds", timeout);
             break;
         case XCTWaiterResultInterrupted:
             NSLog(@"Interrupted");

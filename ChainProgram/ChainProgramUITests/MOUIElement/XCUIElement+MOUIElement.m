@@ -8,6 +8,7 @@
 
 #import "XCUIElement+MOUIElement.h"
 
+
 @implementation XCUIElement (MOUIElement)
 
 // tap
@@ -75,6 +76,44 @@
 - (XCUIElement *(^)(NSString *))mo_adjustToPickerWheelValue {
     return ^XCUIElement *(NSString *pickerWheelValue) {
         [self adjustToPickerWheelValue:pickerWheelValue];
+        return self;
+    };
+}
+
+
+
+
+/// XCUIDevice
+
+// Home button
+- (XCUIElement *(^)(void))mo_pressHomeButton {
+    return ^XCUIElement *() {
+        XCUIDevice *device = [XCUIDevice sharedDevice];
+        [device pressButton:XCUIDeviceButtonHome];
+        return self;
+    };
+}
+
+// Launch
+- (XCUIElement *(^)(void))mo_launch {
+    return ^XCUIElement *() {
+        [[[XCUIApplication alloc] init] launch];
+        return self;
+    };
+}
+
+// Activate
+- (XCUIElement *(^)(void))mo_activate {
+    return ^XCUIElement *() {
+        [[[XCUIApplication alloc] init] activate];
+        return self;
+    };
+}
+
+// Terminate
+- (XCUIElement *(^)(void))mo_terminate {
+    return ^XCUIElement *() {
+        [[[XCUIApplication alloc] init] terminate];
         return self;
     };
 }
