@@ -81,6 +81,25 @@
 }
 
 
+// Slider
+// Get slider position
+- (XCUIElement *(^)(void))mo_normalizedSliderPosition {
+    return ^XCUIElement *() {
+        [self normalizedSliderPosition];
+        return self;
+    };
+}
+
+// Ajust slider position
+- (XCUIElement *(^)(CGFloat))mo_adjustToNormalizedSliderPosition {
+    return ^XCUIElement *(CGFloat normalizedSliderPosition) {
+        [self adjustToNormalizedSliderPosition:normalizedSliderPosition];
+        return self;
+    };
+}
+
+
+
 
 
 /// XCUIDevice

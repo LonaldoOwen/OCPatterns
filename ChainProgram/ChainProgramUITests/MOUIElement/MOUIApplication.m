@@ -147,6 +147,16 @@
 }
 
 
+// ScrollView
+- (XCUIElement *(^)(NSInteger))mo_findScrollViewByIndex {
+    return ^XCUIElement *(NSInteger index) {
+        MOUIApplication *app = MOUIApplication.new;
+        XCUIElement *scrollView = [app.scrollViews elementBoundByIndex:index];
+        return scrollView;
+    };
+}
+
+
 // SearchBar
 - (XCUIElement *(^)(void))mo_findSearchBar {
     return ^XCUIElement *() {
@@ -160,7 +170,7 @@
 
 
 // SegmentedControl
-- (XCUIElement *(^)(NSInteger))mo_findSegmentedContrlTabByIndex {
+- (XCUIElement *(^)(NSInteger))mo_findSegmentedControlTabByIndex {
     return ^XCUIElement *(NSInteger index) {
         MOUIApplication *app = MOUIApplication.new;
         XCUIElementQuery *segmentedControls = app.segmentedControls;
@@ -172,12 +182,22 @@
     };
 }
 
-- (XCUIElement *(^)(NSString *))mo_findSegmentedContrlTabByIdentifier {
+- (XCUIElement *(^)(NSString *))mo_findSegmentedControlTabByIdentifier {
     return ^XCUIElement *(NSString *identifier) {
         MOUIApplication *app = MOUIApplication.new;
         // 可以看看这个写法的效率
         XCUIElement *button = app.segmentedControls.buttons[identifier].firstMatch;
         return button;
+    };
+}
+
+
+// Slider
+- (XCUIElement *(^)(NSInteger))mo_findSliderByIndex {
+    return ^XCUIElement *(NSInteger index) {
+        MOUIApplication *app = MOUIApplication.new;
+        XCUIElement *slider = [app.sliders elementBoundByIndex:index];
+        return slider;
     };
 }
 
@@ -214,6 +234,16 @@
         XCUIElementQuery *buttons = tabBar.buttons;
         XCUIElement *button = [buttons elementMatchingType:XCUIElementTypeButton identifier:identifier];
         return button;
+    };
+}
+
+
+// TableView
+- (XCUIElement *(^)(NSInteger))mo_findTableViewByIndex {
+    return ^XCUIElement *(NSInteger index) {
+        MOUIApplication *app = MOUIApplication.new;
+        XCUIElement *tableView = [app.tables elementBoundByIndex:index];
+        return tableView;
     };
 }
 

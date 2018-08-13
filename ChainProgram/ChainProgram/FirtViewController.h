@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FirtViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface FirtViewController : UIViewController
 
 
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
 
 

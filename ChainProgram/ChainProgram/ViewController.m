@@ -31,6 +31,9 @@
     
     // Show a label with Masonry.
     //[self showALabelWithMasonry];
+    
+    // 配置slider
+    self.showSliderValueLabel.text = [NSString stringWithFormat:@"%0.2f", self.slider.value];
 }
 
 
@@ -38,6 +41,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+// MARK: Actions
+
+- (IBAction)handleSliderAction:(id)sender {
+    float value = [(UISlider *)sender value];
+    self.showSliderValueLabel.text = [NSString stringWithFormat:@"%0.2f", value ];
+}
+
+
+
 
 
 // MARK: - Examples

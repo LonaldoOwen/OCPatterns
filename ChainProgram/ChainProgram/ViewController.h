@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *showSliderValueLabel;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+
 
 @end
 

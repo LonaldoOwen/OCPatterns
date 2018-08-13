@@ -99,6 +99,13 @@
  */
 
 
+// MARK: - ScrollView
+/**
+ *Find：scrollView by index.
+ */
+@property (nonatomic, copy) XCUIElement *(^mo_findScrollViewByIndex)(NSInteger index);
+
+
 // MARK: - SearchBar
 /**
  *Find：searchBar by index.
@@ -108,14 +115,22 @@
 
 // MARK: - SegmentedControl
 /**
- *Find：segmentedControl by index.
+ Find：segmentedControl by index.
+ 注意：如果SegmentedControl嵌入到NavigationBar后，就不能用segmentedControls去获取了，需要使用navigationBar.buttons
  */
-@property (nonatomic, copy) XCUIElement *(^mo_findSegmentedContrlTabByIndex)(NSInteger index);
+@property (nonatomic, copy) XCUIElement *(^mo_findSegmentedControlTabByIndex)(NSInteger index);
 
 /**
- *Find：segmentedControl by identifier.
+ Find：segmentedControl by identifier.
  */
-@property (nonatomic, copy) XCUIElement *(^mo_findSegmentedContrlTabByIdentifier)(NSString *);
+@property (nonatomic, copy) XCUIElement *(^mo_findSegmentedControlTabByIdentifier)(NSString *);
+
+
+// MARK: - Slider
+/**
+ *Find：slider by index.
+ */
+@property (nonatomic, copy) XCUIElement *(^mo_findSliderByIndex)(NSInteger index);
 
 
 // MARK: -Switch
@@ -137,6 +152,13 @@
  （直接使用buttons获取也可以。）
  */
 @property (nonatomic, copy) XCUIElement *(^mo_findTabBarButtonByIdentifier)(NSString *identifier);
+
+
+// MARK: - TableView
+/**
+ *Find：tableView by index.
+ */
+@property (nonatomic, copy) XCUIElement *(^mo_findTableViewByIndex)(NSInteger index);
 
 
 // MARK: - TextField

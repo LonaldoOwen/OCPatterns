@@ -7,20 +7,44 @@
 //
 
 #import "FirtViewController.h"
+#import "SgcOneVC.h"
+#import "SgcTwoVC.h"
 
 @interface FirtViewController ()
+
+@property (nonatomic, strong) SgcOneVC *sgcOne;
+@property (nonatomic, strong) SgcTwoVC *sgcTwo;
+@property (nonatomic, strong) UIViewController *currentVC;
 
 @end
 
 @implementation FirtViewController
 
+
+- (SgcOneVC *)sgcOne {
+    if (_sgcOne == nil) {
+        _sgcOne = [SgcOneVC segmentedVC];
+    }
+    return _sgcOne;
+}
+
+- (SgcTwoVC *)sgcTwo {
+    if (_sgcTwo == nil) {
+        _sgcTwo = [SgcTwoVC segmentedVC];
+    }
+    return _sgcTwo;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // 配置pickerView
-    self.pickerView.dataSource = self;
-    [self.pickerView setDelegate:self];
+    // VC初始化设置
+    [self addChildViewController:self.sgcOne];
+    [self.view addSubview:self.sgcOne.view];
+    self.currentVC = _sgcOne;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,50 +54,39 @@
 
 
 // MARK: - Actions
-- (IBAction)handleAlertButtonAction:(id)sender forEvent:(UIEvent *)event {
-    [self showAlert];
-}
-
-- (void)showAlert {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Test Alert" message:@"This is a alert!" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:confirm];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:cancel];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-
-
-
-// MARK: - UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
-    return 3;
-}
-
-- (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 5;
-}
-
-
-// MARK: - UIPickerViewDelegate
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *string;
-    if (component == 0) {
-        string = @[@"石家庄", @"济南", @"郑州", @"太原", @"西安"][row];
-    } else if (component == 1) {
-        string = @[@"衡水", @"泰山", @"开封", @"晋中", @"宝鸡"][row];
-    } else {
-        string = @[@"承德", @"菏泽", @"驻马店", @"临汾", @"咸阳"][row];
+- (IBAction)handleSegmentedControllAction:(UISegmentedControl *)sender {
+    NSLog(@"#FirtViewController: segmented controll: %ld ", (long)sender.selectedSegmentIndex);
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            [self toggleController:self.currentVC newController:self.sgcOne];
+            break;
+        case 1:
+            [self toggleController:self.currentVC newController:self.sgcTwo];
+            break;
+            
+        default:
+            break;
     }
-    
-    return string;
 }
 
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSLog(@"Selected component %ld row %ld.", (long)component, (long)row);
+// 切换ChildVC
+- (void)toggleController: (UIViewController *)oldVC newController: (UIViewController *)newVC {
+    // 不用添加subview
+    [self addChildViewController:newVC];
+    //[self.view addSubview:newVC.view];
+    
+    [self transitionFromViewController:oldVC toViewController:newVC duration:0.0 options:UIViewAnimationOptionTransitionNone animations:nil completion:^(BOOL finished) {
+        if (finished) {
+            [newVC didMoveToParentViewController:self];
+            [oldVC willMoveToParentViewController:nil];
+            // 不用移除subview
+            [oldVC removeFromParentViewController];
+            //[oldVC.view removeFromSuperview];
+            self.currentVC = newVC;
+        } else {
+            self.currentVC = oldVC;
+        }
+    }];
 }
 
 

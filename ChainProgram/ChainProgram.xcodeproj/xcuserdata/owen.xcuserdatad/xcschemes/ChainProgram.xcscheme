@@ -37,9 +37,74 @@
                BlueprintName = "ChainProgramUITests"
                ReferencedContainer = "container:ChainProgram.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ChainProgramUITests/testAlertChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testAppLifeCycle">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testBarButtonItemChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testCellChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testExample">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testLogin">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testPickerChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testPressHomeButton">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testPressHomeButtonChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testScrollViewChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testSearchBarChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testSegmentedControlChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testSliderChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testSwitchChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTabBarChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTableViewChainable">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTap">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTapChainableOne">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTapChainableThree">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTapChainableTwo">
+               </Test>
+               <Test
+                  Identifier = "ChainProgramUITests/testTextField">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5A9F6EF621103E6700F40298"

@@ -5,6 +5,9 @@
 //  Created by owen on 2018/7/1.
 //  Copyright © 2018 com.owen. All rights reserved.
 //
+/// 功能：Examples of Elemet and Event
+///
+///
 
 #import <XCTest/XCTest.h>
 #import "MOUIApplication.h"
@@ -152,6 +155,11 @@
 }
 
 - (void)testTextFieldChainable {
+    // Configuration
+    // The default is YES. Set this property to NO within a test method to end test execution as soon as a failure occurs.
+    self.continueAfterFailure = YES;
+    
+    
     // Switch to Tab3
     self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
     
@@ -160,7 +168,7 @@
     // 输入秘密
     self.mo_app.mo_findSecureTextFieldByPlaceholder(@"SecureTextField").mo_tap().mo_typeText(@"Password");
     // 点击登录button，跳转到Detail页面
-    self.mo_app.mo_findButtonById(@"登录").mo_tap();
+    //self.mo_app.mo_findButtonById(@"登录").mo_tap();
     // Wait for Element
     // Expect: app.waitForElement(detail).toAppear();
     //self.mo_waitForElementToAppear(app.mo_findTitleByIdentifier(@"Detail"));
@@ -173,6 +181,10 @@
     //XCTAssertEqualObjects(self.mo_app.mo_findTitleByIdentifier(@"Detail").identifier, @"Detail", @"Find title failed!");
 //    self.mo_AssertEqualObjects(detail.identifier, @"Detail2", @"Failure...");
 //    [self mo_AssertElement:detail.identifier equalTo:@"Detail" failure:@"Failure..."];
+    
+    /// 验证未获取到Detail页面，是否会执行以下测试
+    self.mo_app.mo_findTabBarButtonByIndex(0).mo_tap();
+    sleep(3);
 }
 
 - (void)testTabBarChainable {
@@ -226,17 +238,24 @@
 }
 
 - (void)testSegmentedControlChainable {
-    // Find SegmentedControl tap by index.
-    self.mo_app.mo_findSegmentedContrlTabByIndex(1).mo_tap();
+    
+    /// SegmentedControll嵌入在NavigationBar
+    // Tab SegmentedControl 2
+    // 注意：如果SegmentedControl嵌入到NavigationBar后，就不能用segmentedControls去获取了，需要使用navigationBar.buttons
+    // Find button by index
+    self.mo_app.mo_findNavigationBarButtonByIndex(1).mo_tap();
     sleep(2);
-    self.mo_app.mo_findSegmentedContrlTabByIndex(2).mo_tap();
+    // Find button by identifier
+    self.mo_app.mo_findNavigationBarButtonByIdentifier(@"Sgc1").mo_tap();
     sleep(2);
     
-    // Find SegmentedControl tap by identifier
-    self.mo_app.mo_findSegmentedContrlTabByIdentifier(@"First").mo_tap();
+    /// SegmentedControll设置在VC上
+    // Find SegmentedControl tap by index
+    self.mo_app.mo_findSegmentedControlTabByIndex(1).mo_tap();
     sleep(2);
-    self.mo_app.mo_findSegmentedContrlTabByIdentifier(@"Third").mo_tap();
-    sleep(10);
+    // Find SegmentedControl tap by identifier
+    self.mo_app.mo_findSegmentedControlTabByIdentifier(@"Third").mo_tap();
+    sleep(2);
 }
 
 - (void)testBarButtonItemChainable {
@@ -349,7 +368,8 @@
     //self.mo_app.mo_findAlertButtonByID(@"Yes").mo_tap();
     //sleep(2);
     
-    //
+    // ???
+    // 问题：怎么用？做什么的？
     id token = [self addUIInterruptionMonitorWithDescription:@"ShowAlert" handler:^BOOL(XCUIElement * _Nonnull alert) {
         //
         XCUIElement *alertOk = alert.buttons[@"Ok"];
@@ -363,6 +383,33 @@
     }];
     
     self.mo_app.mo_tap();
+}
+
+- (void)testSliderChainable {
+    // Switch to Tab3
+    self.mo_app.mo_findTabBarButtonByIndex(2).mo_tap();
+    // 先判断slide的位置，使用normalizedSliderPosition属性
+    if (self.mo_app.mo_findSliderByIndex(0).normalizedSliderPosition < 0.5) {
+        // slide slider
+        self.mo_app.mo_findSliderByIndex(0).mo_adjustToNormalizedSliderPosition(0.1);
+    }
+    sleep(3);
+}
+
+- (void)testTableViewChainable {
+    // Switch to Tab2
+    self.mo_app.mo_findTabBarButtonByIndex(1).mo_tap();
+    // Find tableView
+    self.mo_app.mo_findTableViewByIndex(0).mo_swipeUp();
+    sleep(3);
+}
+
+- (void)testScrollViewChainable {
+    // Switch to Tab2
+    self.mo_app.mo_findTabBarButtonByIndex(1).mo_tap();
+    // Find scrollView
+    // TableViewController中找不到ScrollView？？？
+    //self.mo_app.mo_findScrollViewByIndex(0).mo_swipeUp();
 }
 
 

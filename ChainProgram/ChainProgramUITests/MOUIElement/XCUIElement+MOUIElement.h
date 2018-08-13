@@ -96,7 +96,18 @@
 - (XCUIElement *(^)(NSString *))mo_adjustToPickerWheelValue;
 
 
+// MARK: - Interacting with Sliders
+/**
+ Event：normalizedSliderPosition
+ Returns the position of the slider's indicator as a normalized value where 0 corresponds to the minimum value of the slider and 1 corresponds to its maximum value.
+ */
+- (XCUIElement *(^)(void))mo_normalizedSliderPosition;
 
+/**
+ Event：- adjustToNormalizedSliderPosition:
+ Manipulates the UI to change the displayed value of the slider to a new value, based on a normalized position.
+ */
+- (XCUIElement *(^)(CGFloat))mo_adjustToNormalizedSliderPosition;
 
 
 
