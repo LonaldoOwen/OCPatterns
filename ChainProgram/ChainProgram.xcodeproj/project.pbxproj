@@ -27,7 +27,6 @@
 		5AD188D920E72C0500AD0B9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188D820E72C0500AD0B9C /* main.m */; };
 		5AD188E120E770A600AD0B9C /* MO_UILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188E020E770A600AD0B9C /* MO_UILabel.m */; };
 		5AD188E920E874EC00AD0B9C /* ChainProgramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188E820E874EC00AD0B9C /* ChainProgramUITests.m */; };
-		5AD188F220E8CEF900AD0B9C /* MOUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188F120E8CEF900AD0B9C /* MOUIElement.m */; };
 		5AD188F520ECD55F00AD0B9C /* MOUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188F420ECD55F00AD0B9C /* MOUIApplication.m */; };
 		5AD188FB20ED067300AD0B9C /* XCUIElement+MOUIElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD188FA20ED067300AD0B9C /* XCUIElement+MOUIElement.m */; };
 		72E56D5BC803879420DF52A4 /* libPods-ChainProgram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B188EE4638C01799D0B8FD5 /* libPods-ChainProgram.a */; };
@@ -90,8 +89,6 @@
 		5AD188E620E874EC00AD0B9C /* ChainProgramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainProgramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD188E820E874EC00AD0B9C /* ChainProgramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainProgramUITests.m; sourceTree = "<group>"; };
 		5AD188EA20E874EC00AD0B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AD188F020E8CEF900AD0B9C /* MOUIElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOUIElement.h; sourceTree = "<group>"; };
-		5AD188F120E8CEF900AD0B9C /* MOUIElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOUIElement.m; sourceTree = "<group>"; };
 		5AD188F320ECD55F00AD0B9C /* MOUIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOUIApplication.h; sourceTree = "<group>"; };
 		5AD188F420ECD55F00AD0B9C /* MOUIApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOUIApplication.m; sourceTree = "<group>"; };
 		5AD188F920ED067300AD0B9C /* XCUIElement+MOUIElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+MOUIElement.h"; sourceTree = "<group>"; };
@@ -140,6 +137,15 @@
 				4B188EE4638C01799D0B8FD5 /* libPods-ChainProgram.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A784FFD21242C1A0092AD51 /* MOXCUITest */ = {
+			isa = PBXGroup;
+			children = (
+				5A9F6EF221103BF200F40298 /* MOAssert */,
+				5AD188FC20ED0F1500AD0B9C /* MOUIElement */,
+			);
+			path = MOXCUITest;
 			sourceTree = "<group>";
 		};
 		5A9F6EF221103BF200F40298 /* MOAssert */ = {
@@ -221,8 +227,7 @@
 			children = (
 				5AD188E820E874EC00AD0B9C /* ChainProgramUITests.m */,
 				5A784FD72119A6230092AD51 /* TextLogin.m */,
-				5A9F6EF221103BF200F40298 /* MOAssert */,
-				5AD188FC20ED0F1500AD0B9C /* MOUIElement */,
+				5A784FFD21242C1A0092AD51 /* MOXCUITest */,
 				5AD188EA20E874EC00AD0B9C /* Info.plist */,
 			);
 			path = ChainProgramUITests;
@@ -231,8 +236,6 @@
 		5AD188FC20ED0F1500AD0B9C /* MOUIElement */ = {
 			isa = PBXGroup;
 			children = (
-				5AD188F020E8CEF900AD0B9C /* MOUIElement.h */,
-				5AD188F120E8CEF900AD0B9C /* MOUIElement.m */,
 				5AD188F320ECD55F00AD0B9C /* MOUIApplication.h */,
 				5AD188F420ECD55F00AD0B9C /* MOUIApplication.m */,
 				5AD188F920ED067300AD0B9C /* XCUIElement+MOUIElement.h */,
@@ -423,7 +426,6 @@
 			files = (
 				5A784FD82119A6230092AD51 /* TextLogin.m in Sources */,
 				5A9F6EF121103BD800F40298 /* XCTestCase+MOWait.m in Sources */,
-				5AD188F220E8CEF900AD0B9C /* MOUIElement.m in Sources */,
 				5AD188F520ECD55F00AD0B9C /* MOUIApplication.m in Sources */,
 				5AD188FB20ED067300AD0B9C /* XCUIElement+MOUIElement.m in Sources */,
 				5A9F6F0521105E6200F40298 /* XCTestCase+MOAssert.m in Sources */,
